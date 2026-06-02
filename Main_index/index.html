@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Johnny Inc. - Construction Materials</title>
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img src="../public/assets_images/johnnyinc.jpg" alt="logo" id="logo" />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html">
+                <span class="text-space"></span>
+                <img src="../public/Main_icons/home.svg" alt="home" />
+              </a>
+            </li>
+            <li class="dropdown-item">
+              <a href="products.html">
+                Products <span class="text-space"></span>
+                <img src="../public/Main_icons/products.svg" alt="products" />
+              </a>
+
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+
+            <li>
+              <a href="services.html">
+                Services <span class="text-space"></span>
+                <img src="../public/Main_icons/services.svg" alt="services" />
+              </a>
+            </li>
+
+            <li>
+              <a href="contact.html">
+                Contact <span class="text-space"></span>
+                <img src="../public/Main_icons/contact.svg" alt="contact" />
+              </a>
+            </li>
+
+            <li id="nav-login">
+              <a href="login.html">
+                Login <span class="text-space"></span>
+                <img src="../public/Main_icons/login.svg" alt="login" />
+              </a>
+            </li>
+
+            <!--Profile-->
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html">
+                My Profile <span class="text-space"></span>
+                <img src="../public/Main_icons/profile.svg" alt="profile" />
+              </a>
+
+              <ul class="dropdown-menu">
+    <li>
+        <a id="link-orders" href="profile.html?tab=orders">Order History</a>
+    </li>
+    <li>
+        <a id="link-quotes" href="profile.html?tab=quotes">My Quotes</a>
+    </li>
+    </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()">
+                Log out <span class="text-space"></span>
+                <img src="../public/Main_icons/logout.svg" alt="logout" />
+              </a>
+            </li>
+
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Banner -->
+    <section class="hero-banner">
+      <div class="container">
+        <div class="banner-content">
+          <h2>High Quality Materials for Your Projects</h2>
+          <p>
+            At Johnny Inc. we offer the best construction materials and
+            services, with guaranteed quality and competitive prices.
+          </p>
+          <a href="products.html" class="btn">View Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> / <span>Johnny Inc.</span>
+      </div>
+    </div>
+
+    <!-- Featured Products Section -->
+    <section id="productos" class="featured-products">
+      <div class="container">
+        <h2>Our Featured Products</h2>
+        <!-- 
+            CAMBIO: Vaciamos el grid y le pusimos un ID
+        -->
+        <div class="products-grid" id="featured-products-grid">
+          <!-- El JS llenará esto... -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <i class="fas fa-truck"></i>
+            <h3>Home Delivery</h3>
+            <p>
+              We deliver your materials directly to the construction site at no
+              additional cost.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <i class="fas fa-calculator"></i>
+            <h3>Technical Advice</h3>
+            <p>Our experts will help you calculate the necessary quantities.</p>
+          </div>
+
+          <div class="service-item">
+            <i class="fas fa-hard-hat"></i>
+            <h3>Professional Service</h3>
+            <p>We have qualified staff for specific recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+      </div> 
+
+        <div class="team-section" style="margin-top: 50px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+            
+            <div class="team-image" style="flex: 1; min-width: 250px;">
+                <img src="../public/assets_images/team.jpg" alt="Nuestro Equipo" 
+                     style="width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); object-fit: cover;">
+            </div>
+
+            <div class="team-info" style="flex: 2;">
+                <h2 style="color: #2c3e50; border-bottom: 3px solid #e67e22; display: inline-block; padding-bottom: 5px; margin-bottom: 20px;">
+                    <i class="fas fa-users"></i> About the Team
+                </h2>
+                
+                <h3 style="color: #e67e22; margin-bottom: 10px;">Team: "The Brr brr patapims"</h3> <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #2c3e50; border-radius: 4px;">
+                    <p style="margin-bottom: 8px;"><strong><i class="fas fa-project-diagram"></i> Project:</strong> Integral System E-Commerce & ERP "Johnny Inc."</p>
+                    <p style="margin-bottom: 8px;"><strong><i class="fas fa-book"></i> Subject:</strong> Integrative Programation / Data Base</p>
+                    <p style="margin-bottom: 8px;"><strong><i class="fas fa-chalkboard-teacher"></i> Professor:</strong> Ing. José Maximiliano Mendoza Martínez</p>
+                    <p style="margin-bottom: 0;"><strong><i class="fas fa-university"></i> Quarter:</strong> 3 - 2025</p>
+                </div>
+
+                <h4 style="margin-top: 20px; color: #555;">Developers:</h4>
+                <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <li style="background: #ecf0f1; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem;"><i class="fas fa-code"></i> David Días Fuentes</li>
+                    <li style="background: #ecf0f1; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem;"><i class="fas fa-code"></i> Joshua Iván Martínez Vázquez</li>
+                    <li style="background: #ecf0f1; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem;"><i class="fas fa-code"></i> Jonathan Hernández</li>
+                    <li style="background: #ecf0f1; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem;"><i class="fas fa-code"></i> Alan Alberto Ortega Moreno</li>
+                    <li style="background: #ecf0f1; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem;"><i class="fas fa-code"></i> Brandon Emmanuel Rojas Casillas</li>
+                </ul>
+            </div>
+        </div>
+
+    </div> </main>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Start Your Project?</h2>
+          <p>Contact us today and receive personalized advice at no cost.</p>
+          <a href="contact.html" class="btn btn-large">Request Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Johnny Inc.</h3>
+            <p>Your reliable partner in construction materials since 2005.</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Construction Ave 123, City
+            </p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@johnnyinc.com</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturdays: 9:00 AM - 2:00 PM</p>
+            <p>Sundays: Closed</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Johnny Inc. - All rights reserved.</p>
+        </div>
+      </div>
+      <div class="social-media-links">
+    <a href="https://www.facebook.com/UTRBIS/K" target="_blank" class="social-icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com/universidadtecnologicaelretono" target="_blank" class="social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://utr.edu.mx/" target="_blank" class="social-icon" aria-label="Sitio Web Oficial">
+        <i class="fas fa-globe"></i>
+    </a>
+</div>
+    </footer>
+    <script src="../public/Main_js/navbar.js" defer></script>
+    <script src="../public/Main_js/home.js" defer></script>
+  </body>
+</html>

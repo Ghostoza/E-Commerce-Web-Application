@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Sign In - Johnny Inc.</title>
+    <link rel="stylesheet" href="../public/Main_styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-left">
+            <h1><i class="fas fa-hard-hat"></i> Johnny Inc.</h1>
+            <p>Welcome back! Access your account to manage your projects, view quotes, and track your orders.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure encrypted system</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 access to your account</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-check"></i>
+                    <span>Identity verification</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-right">
+            <div class="form-header">
+                <h2><i class="fas fa-lock"></i> CLIENT SIGN IN</h2>
+                <p>Enter your account details</p>
+            </div>
+            
+            <form id="formularioLogin">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <i class="fas fa-key"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="options">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    SIGN IN <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <div id="respuesta"></div>
+            
+            <div class="footer-text">
+                Don't have an account? <a href="register.html">Create one</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../public/Main_js/login.js" defer></script>
+</body>
+</html>

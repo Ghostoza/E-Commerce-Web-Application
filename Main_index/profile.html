@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Johnny Inc.</title>
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link rel="stylesheet" href="../public/Main_styles/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../public/assets_images/johnnyinc.jpg" />
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img src="../public/assets_images/johnnyinc.jpg" alt="logo" id="logo" />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"><img src="../public/Main_icons/home.svg" /></a>
+            </li>
+
+            <li class="dropdown-item">
+              <a href="products.html"
+                >Products <img src="../public/Main_icons/products.svg"
+              /></a>
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+
+            <li>
+              <a href="services.html"
+                >Services <img src="../public/Main_icons/services.svg"
+              /></a>
+            </li>
+            <li>
+              <a href="contact.html"
+                >Contact <img src="../public/Main_icons/contact.svg"
+              /></a>
+            </li>
+            <li id="nav-login">
+              <a href="login.html">Login <img src="../public/Main_icons/login.svg" /></a>
+            </li>
+
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html"
+                >My Profile <img src="../public/Main_icons/profile.svg"
+              /></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a id="link-orders" href="profile.html?tab=orders"
+                    >Order History</a
+                  >
+                </li>
+                <li>
+                  <a id="link-quotes" href="profile.html?tab=quotes"
+                    >My Quotes</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()"
+                >Log out <img src="../public/Main_icons/logout.svg"
+              /></a>
+            </li>
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i
+                ><span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <main class="profile-container">
+      <div class="container">
+        <div class="profile-header">
+          <h2>
+            <i class="fas fa-user-circle"></i>
+            <span id="user-welcome">My Account</span>
+          </h2>
+          <p>Manage your orders and service requests.</p>
+        </div>
+
+        <div class="profile-layout">
+          <aside class="profile-sidebar">
+            <div class="filter-header" style="margin-bottom: 15px">
+              <h3 style="margin: 0; color: #2c3e50">Filters</h3>
+            </div>
+
+            <div id="filters-orders" style="display: none">
+              <div class="filter-box">
+                <h3><i class="fas fa-box"></i> Filter Orders</h3>
+
+                <div class="search-box">
+                  <input
+                    type="text"
+                    id="orderSearch"
+                    placeholder="Search ID..."
+                    onkeyup="applySearch()"
+                  />
+                </div>
+
+                <h4 class="filter-title">Status</h4>
+                <ul class="filter-list" id="order-status-list">
+                  <li
+                    class="active"
+                    onclick="setOrderFilter('status', '', this)"
+                  >
+                    All
+                  </li>
+                  <li onclick="setOrderFilter('status', 'pending', this)">
+                    Pending
+                  </li>
+                  <li onclick="setOrderFilter('status', 'shipped', this)">
+                    Shipped
+                  </li>
+                  <li onclick="setOrderFilter('status', 'completed', this)">
+                    Completed
+                  </li>
+                  <li onclick="setOrderFilter('status', 'canceled', this)">
+                    Cancelled
+                  </li>
+                </ul>
+
+                <h4 class="filter-title">Time Period</h4>
+                <ul class="filter-list" id="order-time-list">
+                  <li class="active" onclick="setOrderFilter('time', '', this)">
+                    Any Time
+                  </li>
+                  <li onclick="setOrderFilter('time', '30', this)">
+                    Last 30 Days
+                  </li>
+                  <li onclick="setOrderFilter('time', '90', this)">
+                    Last 3 Months
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="filters-quotes" style="display: none">
+              <div class="filter-box" style="border-left: 4px solid #3498db">
+                <h3 style="color: #3498db">
+                  <i class="fas fa-file-invoice"></i> Filter Quotes
+                </h3>
+                <ul class="filter-list" id="quote-status-list">
+                  <li class="active" onclick="setQuoteFilter('', this)">
+                    All Quotes
+                  </li>
+                  <li onclick="setQuoteFilter('pending', this)">
+                    Pending Review
+                  </li>
+                  <li onclick="setQuoteFilter('contacted', this)">
+                    Ready to Pay
+                  </li>
+                  <li onclick="setQuoteFilter('completed', this)">Paid</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="btn-reset" onclick="resetFilters()">
+              Reset All Filters
+            </button>
+          </aside>
+
+          <div class="profile-content-area">
+            <ul class="accordion-list">
+              <li id="acc-orders" class="accordion-item active">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                  <h3>Order History</h3>
+                  <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="accordion-content">
+                  <table class="orders-table">
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="orders-list">
+                      <tr>
+                        <td colspan="5" style="text-align: center">
+                          Loading...
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+
+              <li id="acc-quotes" class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                  <h3><i class="fas fa-file-invoice"></i> Service Quotes</h3>
+                  <i class="fas fa-chevron-down arrow"></i>
+                </div>
+
+                <div class="accordion-content">
+                  <table class="orders-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Service Type</th>
+                        <th>Preferred Date</th>
+                        <th>Details</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Response</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="quotes-list">
+                      <tr>
+                        <td colspan="8" style="text-align: center">
+                          Loading requests...
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ul>
+
+            <div
+              class="profile-card"
+              style="
+                background: white;
+                padding: 25px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                margin-bottom: 30px;
+                border: 1px solid #eee;
+              "
+            >
+              <h3
+                style="
+                  margin-top: 0;
+                  color: #2c3e50;
+                  border-bottom: 1px solid #eee;
+                  padding-bottom: 10px;
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-id-card"></i> Personal Information
+              </h3>
+
+              <form
+                onsubmit="updateUserProfile(event)"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+              >
+                <div style="grid-column: 1 / -1">
+                  <label
+                    style="
+                      display: block;
+                      font-weight: bold;
+                      font-size: 0.9rem;
+                      color: #7f8c8d;
+                      margin-bottom: 5px;
+                    "
+                    >Email (Cannot be changed)</label
+                  >
+                  <input
+                    type="email"
+                    id="profEmail"
+                    disabled
+                    style="
+                      width: 100%;
+                      padding: 10px;
+                      background: #f9f9f9;
+                      border: 1px solid #ddd;
+                      color: #555;
+                      cursor: not-allowed;
+                      border-radius: 4px;
+                    "
+                  />
+                </div>
+
+                <div>
+                  <label
+                    style="
+                      display: block;
+                      font-weight: bold;
+                      font-size: 0.9rem;
+                      margin-bottom: 5px;
+                    "
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="profName"
+                    required
+                    style="
+                      width: 100%;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      border-radius: 4px;
+                    "
+                  />
+                </div>
+                <div>
+                  <label
+                    style="
+                      display: block;
+                      font-weight: bold;
+                      font-size: 0.9rem;
+                      margin-bottom: 5px;
+                    "
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="profLastName"
+                    required
+                    style="
+                      width: 100%;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      border-radius: 4px;
+                    "
+                  />
+                </div>
+
+                <div>
+                  <label
+                    style="
+                      display: block;
+                      font-weight: bold;
+                      font-size: 0.9rem;
+                      margin-bottom: 5px;
+                    "
+                    >Phone Number</label
+                  >
+                  <input
+                    type="text"
+                    id="profPhone"
+                    placeholder="(123) 456-7890"
+                    style="
+                      width: 100%;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      border-radius: 4px;
+                    "
+                  />
+                </div>
+                <div>
+                  <label
+                    style="
+                      display: block;
+                      font-weight: bold;
+                      font-size: 0.9rem;
+                      margin-bottom: 5px;
+                    "
+                    >Shipping Address</label
+                  >
+                  <input
+                    type="text"
+                    id="profAddress"
+                    placeholder="Street, City, Zip"
+                    style="
+                      width: 100%;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      border-radius: 4px;
+                    "
+                  />
+                </div>
+
+                <div
+                  style="
+                    grid-column: 1 / -1;
+                    text-align: right;
+                    margin-top: 10px;
+                  "
+                >
+                  <button type="submit" class="btn" style="padding: 12px 30px">
+                    <i class="fas fa-save"></i> Save Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <ul class="accordion-list"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom"><p>&copy; 2023 Johnny Inc.</p></div>
+        <div class="social-media-links">
+    <a href="https://www.facebook.com/UTRBIS/K" target="_blank" class="social-icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com/universidadtecnologicaelretono" target="_blank" class="social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://utr.edu.mx/" target="_blank" class="social-icon" aria-label="Sitio Web Oficial">
+        <i class="fas fa-globe"></i>
+    </a>
+</div>
+      </div>
+    </footer>
+
+    <script src="../public/Main_js/navbar.js" defer></script>
+    <script src="../public/Main_js/profile.js" defer></script>
+  </body>
+</html>

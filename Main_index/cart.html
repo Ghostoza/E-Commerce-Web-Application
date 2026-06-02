@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Johnny Inc.</title>
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link rel="stylesheet" href="../public/Main_styles/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../public/assets_images/johnnyinc.jpg" />
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img
+              src="../public/assets_images/johnnyinc.jpg"
+              alt="logo"
+              id="logo"
+            />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"
+                ><img src="../public/Main_icons/home.svg"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="products.html">
+                Products <span class="text-space"></span>
+                <img src="../public/Main_icons/products.svg" alt="products" />
+              </a>
+
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+            <li>
+              <a href="services.html"
+                >Services <span class="text-space"></span
+                ><img src="../public/Main_icons/services.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                Contact
+                <span class="text-space"></span>
+                <img src="../public/Main_icons/contact.svg" />
+              </a>
+            </li>
+
+            <li id="nav-login">
+              <a href="login.html"
+                >Login<span class="text-space"></span
+                ><img src="../public/Main_icons/login.svg"
+              /></a>
+            </li>
+
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html">
+                My Profile <span class="text-space"></span>
+                <img src="../public/Main_icons/profile.svg" alt="profile" />
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="profile.html?tab=orders">Order History</a>
+                </li>
+                <li>
+                  <a href="profile.html?tab=quotes">My Quotes</a>
+                </li>
+              </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()"
+                >Log out<span class="text-space"></span
+                ><img src="../public/Main_icons/logout.svg"
+              /></a>
+            </li>
+
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <main class="cart-container">
+      <div class="container">
+        <h2>Your Shopping Cart</h2>
+
+        <div class="cart-layout">
+          <div class="cart-items" id="cart-items-container">
+            <p>Loading cart...</p>
+          </div>
+
+          <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax (16%)</span>
+              <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+            <button
+              id="btn-checkout"
+              class="btn btn-large"
+              onclick="openCheckoutModal()"
+              disabled
+            >
+              Proceed to Checkout
+            </button>
+            <a href="products.html" class="continue-shopping"
+              >Continue Shopping</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2><i class="fas fa-credit-card"></i> Finalize Order</h2>
+        <p>Please confirm your details to ship your items.</p>
+
+        <form id="checkoutForm" onsubmit="finalizeOrder(event)">
+          <div class="form-group">
+            <label>Delivery Address:</label>
+            <input
+              type="text"
+              id="checkoutAddress"
+              placeholder="Street, City, Zip"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number:</label>
+            <input
+              type="text"
+              id="checkoutPhone"
+              placeholder="(123) 456-7890"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Payment Method:</label>
+            <select id="checkoutPayment">
+              <option value="Credit Card">Credit Card</option>
+              <option value="Debit Card">Debit Card</option>
+              <option value="PayPal">PayPal</option>
+              <option value="Cash">Cash on Delivery</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" onclick="closeModal()">
+              Cancel
+            </button>
+            <button type="submit" class="btn-confirm">Confirm & Pay</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2023 Johnny Inc. - All rights reserved.</p>
+        </div>
+        <div class="social-media-links">
+          <a
+            href="https://www.facebook.com/UTRBIS/K"
+            target="_blank"
+            class="social-icon"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a
+            href="https://instagram.com/universidadtecnologicaelretono"
+            target="_blank"
+            class="social-icon"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://utr.edu.mx/"
+            target="_blank"
+            class="social-icon"
+            aria-label="Sitio Web Oficial"
+          >
+            <i class="fas fa-globe"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../public/Main_js/cart.js" defer></script>
+    <script src="../public/Main_js/navbar.js" defer></script>
+  </body>
+</html>

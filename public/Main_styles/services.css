@@ -1,0 +1,19 @@
+.services-container { padding: 40px 0; background: #f9f9f9; }
+        .quote-form-box { 
+            background: white; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #2c3e50; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;
+        }
+        .btn-submit-quote {
+            width: 100%; background: #e67e22; color: white; border: none; padding: 12px;
+            font-size: 1.1rem; font-weight: bold; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit-quote:hover { background: #d35400; }

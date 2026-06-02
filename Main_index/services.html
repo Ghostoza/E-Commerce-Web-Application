@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services & Quotes - Johnny Inc.</title>
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../public/assets_images/johnnyinc.jpg" />
+    <link rel="stylesheet" href="../public/Main_styles/services.css" />
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img
+              src="../public/assets_images/johnnyinc.jpg"
+              alt="logo"
+              id="logo"
+            />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"
+                ><img src="../public/Main_icons/home.svg"
+              /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="products.html">
+                Products <span class="text-space"></span>
+                <img src="../public/Main_icons/products.svg" alt="products" />
+              </a>
+
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+            <li>
+              <a href="services.html"
+                >Services <span class="text-space"></span
+                ><img src="../public/Main_icons/services.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                Contact
+                <span class="text-space"></span>
+                <img src="../public/Main_icons/contact.svg" />
+              </a>
+            </li>
+
+            <li id="nav-login">
+              <a href="login.html"
+                >Login<span class="text-space"></span
+                ><img src="../public/Main_icons/login.svg"
+              /></a>
+            </li>
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html"
+                >My Profile<span class="text-space"></span
+                ><img src="../public/Main_icons/profile.svg"
+              /></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.html?tab=orders">Order History</a></li>
+                <li><a href="profile.html?tab=quotes">My Quotes</a></li>
+              </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()"
+                >Log out<span class="text-space"></span
+                ><img src="../public/Main_icons/logout.svg"
+              /></a>
+            </li>
+
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> / <span>Request Service</span>
+      </div>
+    </div>
+
+    <main class="services-container">
+      <div class="container">
+        <div class="quote-form-box">
+          <h2 style="text-align: center; margin-bottom: 20px">
+            Request a Service Quote
+          </h2>
+          <p style="text-align: center; margin-bottom: 30px; color: #777">
+            Tell us what you need and our experts will contact you with a
+            personalized price.
+          </p>
+
+          <form id="serviceForm">
+            <div class="form-group">
+              <label for="serviceType">Service Type</label>
+              <select id="serviceType" required>
+                <option value="">Select a service...</option>
+                <option value="Home Delivery">
+                  Home Delivery (Special Cargo)
+                </option>
+                <option value="Installation">Material Installation</option>
+                <option value="Technical Advice">
+                  Technical Advice / Planning
+                </option>
+                <option value="Custom">Other / Custom Project</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceDate">Preferred Date</label>
+              <input type="date" id="serviceDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="serviceDesc">Project Description</label>
+              <textarea
+                id="serviceDesc"
+                rows="5"
+                placeholder="Describe your project dimensions, location, and specific needs..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-quote">
+              Submit Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom"><p>&copy; 2023 Johnny Inc.</p></div>
+        <div class="social-media-links">
+          <a
+            href="https://www.facebook.com/UTRBIS/K"
+            target="_blank"
+            class="social-icon"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a
+            href="https://instagram.com/universidadtecnologicaelretono"
+            target="_blank"
+            class="social-icon"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://utr.edu.mx/"
+            target="_blank"
+            class="social-icon"
+            aria-label="Sitio Web Oficial"
+          >
+            <i class="fas fa-globe"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../public/Main_js/navbar.js" defer></script>
+    <script src="../public/Main_js/services.js" defer></script>
+  </body>
+</html>

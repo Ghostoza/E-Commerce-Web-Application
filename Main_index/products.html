@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Catalog - Johnny Inc.</title>
+
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link rel="stylesheet" href="../public/Main_styles/products.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../public/assets_images/johnnyinc.jpg" />
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img src="../public/assets_images/johnnyinc.jpg" alt="logo" id="logo" />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"><img src="../public/Main_icons/home.svg" /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="products.html">
+                Products <span class="text-space"></span>
+                <img src="../public/Main_icons/products.svg" alt="products" />
+              </a>
+
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+            <li>
+              <a href="services.html"
+                >Services <span class="text-space"></span
+                ><img src="../public/Main_icons/services.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                Contact
+                <span class="text-space"></span>
+                <img src="../public/Main_icons/contact.svg" />
+              </a>
+            </li>
+
+            <li id="nav-login">
+              <a href="login.html"
+                >Login<span class="text-space"></span
+                ><img src="../public/Main_icons/login.svg"
+              /></a>
+            </li>
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html"
+                >My Profile<span class="text-space"></span
+                ><img src="../public/Main_icons/profile.svg"
+              /></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.html?tab=orders">Order History</a></li>
+                <li><a href="profile.html?tab=quotes">My Quotes</a></li>
+              </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()"
+                >Log out<span class="text-space"></span
+                ><img src="../public/Main_icons/logout.svg"
+              /></a>
+            </li>
+
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> / <span>Products Catalog</span>
+      </div>
+    </div>
+
+    <main class="products-page-container">
+      <div class="container">
+        <h2>Complete Catalog</h2>
+
+        <div class="products-page-layout" style="display: flex; gap: 30px">
+          <aside class="filter-sidebar" style="width: 250px; flex-shrink: 0">
+            <div class="search-box" style="margin-bottom: 20px">
+              <input
+                type="search"
+                id="search-bar"
+                placeholder="Search products..."
+                style="
+                  width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                "
+              />
+            </div>
+
+            <div
+              class="category-filter"
+              style="
+                background: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <h3
+                style="
+                  border-bottom: 1px solid #eee;
+                  padding-bottom: 10px;
+                  margin-bottom: 10px;
+                "
+              >
+                Categories
+              </h3>
+              <ul id="category-list" style="list-style: none; padding: 0">
+                <li>Loading categories...</li>
+              </ul>
+            </div>
+
+            <div
+              class="filter-box"
+              style="
+                background: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                margin-top: 20px;
+              "
+            >
+              <h3
+                style="
+                  border-bottom: 1px solid #eee;
+                  padding-bottom: 10px;
+                  margin-bottom: 10px;
+                  color: #2c3e50;
+                "
+              >
+                <i class="fas fa-tag"></i> Price Range
+              </h3>
+              <ul class="filter-list" id="price-filters">
+                <li onclick="setPriceFilter(null, null, this)" class="active">
+                  Any Price
+                </li>
+                <li onclick="setPriceFilter(0, 20, this)">Under $20 (Cheap)</li>
+                <li onclick="setPriceFilter(20, 100, this)">
+                  $20 - $100 (Standard)
+                </li>
+                <li onclick="setPriceFilter(100, 500, this)">
+                  $100 - $500 (Premium)
+                </li>
+                <li onclick="setPriceFilter(500, 99999, this)">
+                  Over $500 (Heavy Duty)
+                </li>
+              </ul>
+
+              <h3
+                style="
+                  border-bottom: 1px solid #eee;
+                  padding-bottom: 10px;
+                  margin-top: 20px;
+                  margin-bottom: 10px;
+                  color: #2c3e50;
+                "
+              >
+                <i class="fas fa-cubes"></i> Availability
+              </h3>
+              <ul class="filter-list" id="stock-filters">
+                <li onclick="setStockFilter(0, this)" class="active">
+                  All Items
+                </li>
+                <li onclick="setStockFilter(10, this)">
+                  Bulk Ready (> 10 units)
+                </li>
+                <li onclick="setStockFilter(50, this)">
+                  Wholesale (> 50 units)
+                </li>
+                <li onclick="setStockFilter(100, this)">
+                  Massive Stock (> 100 units)
+                </li>
+              </ul>
+
+              <button
+                onclick="clearAllFilters()"
+                style="
+                  width: 100%;
+                  margin-top: 15px;
+                  background: #95a5a6;
+                  color: white;
+                  border: none;
+                  padding: 8px;
+                  border-radius: 4px;
+                  cursor: pointer;
+                "
+              >
+                Clear All Filters
+              </button>
+            </div>
+          </aside>
+
+          <div class="product-grid-main" style="flex-grow: 1">
+            <div id="product-list" class="products-grid">
+              <p style="width: 100%; text-align: center">Loading products...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Johnny Inc.</h3>
+            <p>Your reliable partner in construction materials since 2005.</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Construction Ave 123, City
+            </p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@johnnyinc.com</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturdays: 9:00 AM - 2:00 PM</p>
+            <p>Sundays: Closed</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Johnny Inc. - All rights reserved.</p>
+        </div>
+        <div class="social-media-links">
+    <a href="https://www.facebook.com/UTRBIS/K" target="_blank" class="social-icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com/universidadtecnologicaelretono" target="_blank" class="social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://utr.edu.mx/" target="_blank" class="social-icon" aria-label="Sitio Web Oficial">
+        <i class="fas fa-globe"></i>
+    </a>
+</div>
+      </div>
+    </footer>
+
+    <script src="../public/Main_js/navbar.js" defer></script>
+
+    <script src="../public/Main_js/products.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Johnny Inc.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../public/Main_styles/stylesS.css" />
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="register-left">
+        <h1><i class="fas fa-hard-hat"></i> Johnny Inc.</h1>
+        <p>
+          Join our community of construction professionals. Create your account
+          to access exclusive features and services.
+        </p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <i class="fas fa-tools"></i>
+            <span>Access to premium construction materials</span>
+          </div>
+          <div class="benefit">
+            <i class="fas fa-shipping-fast"></i>
+            <span>Fast and reliable delivery services</span>
+          </div>
+          <div class="benefit">
+            <i class="fas fa-headset"></i>
+            <span>24/7 customer support</span>
+          </div>
+          <div class="benefit">
+            <i class="fas fa-percentage"></i>
+            <span>Exclusive discounts and offers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="register-right">
+        <div class="form-header">
+          <h2><i class="fas fa-user-plus"></i> CREATE ACCOUNT</h2>
+          <p>Join Johnny Inc. today</p>
+        </div>
+
+        <form id="formularioRegistro">
+          <div class="input-group">
+            <label for="first_name">First Name</label>
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="last_name">Last Name</label>
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your.email@example.com"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a strong password"
+              required
+            /><small style="color: #999; margin-top: 5px; display: block"
+              >Must be at least 8 characters long.</small
+            >
+          </div>
+          <div class="terms">
+            <input type="checkbox" id="terms" required />
+            <label for="terms"
+              >I agree to the <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a></label
+            >
+          </div>
+
+          <button type="submit" class="btn-submit">
+            CREATE ACCOUNT <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="login-link">
+          Already have an account? <a href="login.html">Sign In</a>
+        </div>
+
+        <div id="respuesta"></div>
+      </div>
+    </div>
+    <script src="../public/Main_js/register.js" defer></script>
+  </body>
+</html>

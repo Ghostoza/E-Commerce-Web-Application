@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Johnny Inc.</title>
+
+    <link rel="stylesheet" href="../public/Main_styles/stylesP.css" />
+    <link rel="stylesheet" href="../public/Main_styles/contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html">
+            <img src="../public/assets_images/johnnyinc.jpg" alt="logo" id="logo" />
+          </a>
+          <h1>Johnny Inc.</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="indice">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"><img src="../public/Main_icons/home.svg" /></a>
+            </li>
+            <li class="dropdown-item">
+              <a href="products.html">
+                Products <span class="text-space"></span>
+                <img src="../public/Main_icons/products.svg" alt="products" />
+              </a>
+
+              <ul class="dropdown-menu" id="nav-categories"></ul>
+            </li>
+            <li>
+              <a href="services.html"
+                >Services <span class="text-space"></span
+                ><img src="../public/Main_icons/services.svg" />
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                Contact
+                <span class="text-space"></span>
+                <img src="../public/Main_icons/contact.svg" />
+              </a>
+            </li>
+
+            <li id="nav-login">
+              <a href="login.html"
+                >Login<span class="text-space"></span
+                ><img src="../public/Main_icons/login.svg"
+              /></a>
+            </li>
+            <li id="nav-profile" class="dropdown-item" style="display: none">
+              <a href="profile.html"
+                >My Profile<span class="text-space"></span
+                ><img src="../public/Main_icons/profile.svg"
+              /></a>
+              <ul class="dropdown-menu">
+                <li><a href="profile.html?tab=orders">Order History</a></li>
+                <li><a href="profile.html?tab=quotes">My Quotes</a></li>
+              </ul>
+            </li>
+
+            <li id="nav-logout" style="display: none">
+              <a href="#" onclick="logout()"
+                >Log out<span class="text-space"></span
+                ><img src="../public/Main_icons/logout.svg"
+              /></a>
+            </li>
+
+            <li id="nav-cart" style="display: none">
+              <a href="cart.html" class="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> / <span>Contact Us</span>
+      </div>
+    </div>
+
+    <main class="contact-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Our Location</h3>
+              <p>Construction Ave 123<br />Industrial Park, City</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone-alt"></i>
+              <h3>Phone</h3>
+              <p>(123) 456-7890<br />Mon-Fri, 8am-6pm</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>info@johnnyinc.com<br />support@johnnyinc.com</p>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+            <h2 style="margin-bottom: 20px; color: #2c3e50">
+              Send us a Message
+            </h2>
+            <form id="contactForm">
+              <div class="form-group">
+                <label>Name:</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  placeholder="Your Name"
+                  required
+                  style="width: 100%; padding: 10px; margin-bottom: 10px"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Email:</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  placeholder="Your Email"
+                  required
+                  style="width: 100%; padding: 10px; margin-bottom: 10px"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Subject:</label>
+                <input
+                  type="text"
+                  id="contactSubject"
+                  placeholder="Subject"
+                  style="width: 100%; padding: 10px; margin-bottom: 10px"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Message:</label>
+                <textarea
+                  id="contactMessage"
+                  placeholder="Your Message..."
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                  "
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn"
+                style="width: 100%; padding: 12px"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2023 Johnny Inc. - All rights reserved.</p>
+        </div>
+        <div class="social-media-links">
+    <a href="https://www.facebook.com/UTRBIS/K" target="_blank" class="social-icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com/universidadtecnologicaelretono" target="_blank" class="social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://utr.edu.mx/" target="_blank" class="social-icon" aria-label="Sitio Web Oficial">
+        <i class="fas fa-globe"></i>
+    </a>
+</div>
+      </div>
+    </footer>
+
+    <script src="../public/Main_js/navbar.js" defer></script>
+    <script src="../public/Main_js/contact.js" defer></script>
+  </body>
+</html>
